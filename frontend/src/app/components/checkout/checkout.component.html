@@ -1,0 +1,63 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Thanh Toán</div>
+    <div class="container__background1-content">Trang chủ >> Thanh toán</div>
+</div>
+<div class="checkout">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-6 m-12 c-12">
+                <div class="checkout__info">
+                    <div class="checkout-header">Thông tin giao hàng</div>
+                    <div class="checkout__content">
+                        <input class="checkout__content-input" type="text" name="name" placeholder="Họ và tên">
+                        <input class="checkout__content-input" type="text" name="phone" placeholder="Số điện thoại">
+                        <input class="checkout__content-input" type="text" name="address" placeholder="Địa chỉ">
+                        <div class="checkout__content-selection">
+                            <h4 class="checkout__content-selection-header"> Phương thức thanh toán</h4>
+                            <div class="radio">
+                                <input id="radio-1" name="radio" type="radio" checked>
+                                <label for="radio-1" class="radio-label"> Thanh toán qua ATM Nội Địa / Internet Banking</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio-2" name="radio" type="radio">
+                                <label for="radio-2" class="radio-label"> Trả góp bằng thẻ tín dụng</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio-3" name="radio" type="radio">
+                                <label for="radio-3" class="radio-label"> Chuyển khoản ngân hàng</label>
+                            </div>
+                            <div class="radio">
+                                <input id="radio-4" name="radio" type="radio">
+                                <!-- <label for="radio-4" class="radio-label"> Thanh toán sau khi nhận hàng</label> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-6 m-12 c-12">
+                <div class="checkout-box">
+                    <div class="checkout-name">
+                        <span>Thông tin đơn hàng</span>
+                    </div>
+                    <div class="checkout__border-header">
+                        <span class="checkout__border-header-name">Sản phẩm</span>
+                        <span class="checkout__border-header-price">Giá tiền</span>
+                    </div>
+                    <div class="checkout__border-main" *ngFor="let c of cartData.data; let i=index">
+                        <span class="checkout__border-main-name">{{c.product.tensp}} x {{c.numInCart}}</span>
+                        <span class="checkout__border-main-price">{{cartService.CalculateSubTotal(i)}}₫</span>
+                    </div>
+                    <div class="checkout__border-footer">
+                        <span class="checkout__border-footer-name">Tổng tiền</span>
+                        <span class="checkout__border-footer-price">{{cartTotal}}₫</span>
+
+                    </div>
+                    <div class="checkout__button">
+                        <button class="checkout__button-check">Đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

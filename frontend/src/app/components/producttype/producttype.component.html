@@ -1,0 +1,87 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Sản Phẩm</div>
+    <div class="container__background1-content">Trang chủ >> Sản phẩm</div>
+</div>
+<div class="introduce">
+    <div class="introduce__header">
+        <div class="introduce__icon-left"><i class="fab fa-pagelines"></i></div>
+        <div class="introduce__title">Yêu thương bản thân</div>
+        <div class="introduce__icon-right"><i class="fab fa-pagelines "></i></div>
+    </div>
+    <div class="introduce__content ">
+        <p class="content__message ">Với chúng tôi, mỗi một con người hay một câu chuyện nhỏ cũng ẩn chứa những vẻ đẹp khác nhau, và chúng tôi ở đây để giúp bạn tìm thấy được vẻ đẹp đó thông qua những chi tiết nhỏ nhất </p>
+    </div>
+</div>
+<div class="selection">
+    <div class="selection__header">
+        Chủ đề
+    </div>
+    <div class="sidebar__mobile">
+        <ul class="sidebar__mobile-list ">
+            <li class="sidebar__mobile-item" *ngFor="let p of productsMenu">
+                <a href=" products/loaisp/{{p.tenlsp}}  " class="sidebar__mobile-item-link ">{{p.tenlsp}}</a>
+            </li>
+            <!-- <li class="sidebar__mobile-item">
+                <a href="# " class="sidebar__mobile-item-link ">Bông tai</a>
+            </li>
+            <li class="sidebar__mobile-item ">
+                <a href="# " class="sidebar__mobile-item-link ">Dây chuyền</a>
+            </li>
+            <li class="sidebar__mobile-item ">
+                <a href="# " class="sidebar__mobile-item-link ">Vòng tay</a>
+            </li>
+            <li class="sidebar__mobile-item ">
+                <a href="# " class="sidebar__mobile-item-link ">Cài tóc</a>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<div class="product">
+    <div class="sidebar">
+        <div class="col l-12">
+            <h1 class="sidebar__header">Chủ đề</h1>
+            <ul class="sidebar__list">
+                <li class="sidebar__item" *ngFor="let p of productsMenu">
+                    <a href="products/loaisp/{{p.tenlsp}} " class="sidebar__item-link ">{{p.tenlsp}}</a>
+                </li>
+                <!-- <li class="sidebar__item">
+                    <a href="# " class="sidebar__item-link ">Bông tai</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="# " class="sidebar__item-link ">Dây chuyền</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="# " class="sidebar__item-link ">Vòng cổ</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="# " class="sidebar__item-link ">Cài tóc</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <div class="product__main">
+        <h1 class="product__main-header"> Loại sản phẩm</h1>
+        <div class="grid">
+            <div class="main__box">
+                <div class="row">
+                    <div class="col l-3 m-6 c-6" *ngFor="let products of productsList">
+                        <div class="main__item">
+                            <a (click)="selectProducts(products.masp)" style="cursor:pointer;" class="">
+                                <img src="/assets/IMAGE/{{products.hinh}}" alt="" class="main__item-img"></a>
+
+                            <div class="main__item-info">
+                                <a (click)="selectProducts(products.masp)" style="cursor:pointer;" class="main__item-name">
+                                    {{products.tensp}} 
+                                </a>
+                                <p class="main__item-price">{{products.dongia}}₫</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

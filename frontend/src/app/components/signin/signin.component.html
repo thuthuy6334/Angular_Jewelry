@@ -1,0 +1,44 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Đăng Kí</div>
+    <div class="container__background1-content">Trang chủ >> Đăng kí</div>
+</div>
+<div class="signin">
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-12 m-12 c-12">
+                <form class="signin__box" [formGroup]="signinForm" (ngSubmit)="submitData()">
+                    <div class="signin__header">
+                        <h3 class="signin__name">Đăng kí</h3>
+                        <p class="signin__content">Đăng kí để nhận thêm nhiều thông tin mới</p>
+                    </div>
+                    <div class="signin__form">
+                        <input class="signin__form-input" type="text" formControlName="name" placeholder="Họ và tên">
+                        <div *ngIf="name.invalid && (name.touched)||name.dirty">
+                            <span class="errors" style="color: red;" *ngIf="name.errors?.required">Bạn chưa nhập tên</span>
+                            <span class="errors" style="color: red;" *ngIf="name.errors?.pattern">Không được nhập số và các kí tự lạ</span>
+                        </div>
+                        <input class="signin__form-input " type="text " formControlName="phone" placeholder="Số điện thoại ">
+                        <div *ngIf="phone.invalid && (phone.touched)||phone.dirty">
+                            <span class="errors" style="color: red;" *ngIf="phone.errors?.required">Bạn chưa nhập số điện thoại</span>
+                            <span class="errors" style="color: red;" *ngIf="phone.errors?.pattern">Không được nhập chữ và các kí tự lạ</span>
+                        </div>
+                        <input class="signin__form-input " type="text " formControlName="email" placeholder="Địa chỉ email ">
+                        <div *ngIf="email.invalid && (email.touched)||email.dirty">
+                            <span class="errors" style="color: red;" *ngIf="email.errors?.required">Bạn chưa nhập email</span>
+                            <span class="errors" style="color: red;" *ngIf="email.errors?.email">Vui lòng nhập đúng email</span>
+                        </div>
+                        <input class="signin__form-input " type="password" formControlName="password" placeholder="Mật khẩu ">
+                        <div *ngIf="password.invalid && (password.touched)||password.dirty">
+                            <span class="errors" style="color: red;" *ngIf="password.errors?.required">Bạn chưa nhập mật khẩu</span>
+                        </div>
+                    </div>
+                    <div class="signin__selection ">
+                        <button class="signin__selection-btn ">Đăng kí</button>
+                        <a [routerLink]="[ '/login'] " routerLinkActive="router-link-active " class="signin__selection-link ">Đăng nhập</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

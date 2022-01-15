@@ -1,0 +1,91 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Bộ Sưu Tập</div>
+    <div class="container__background1-content">Trang chủ >> Bộ sưu tập</div>
+</div>
+
+<div class="collection">
+    <div class="grid wide">
+        <div class="colections__thiennhien">
+            <div class="row">
+                <div class="col l-4 m-12 c-12">
+                    <div class="collection__thiennhien-info">
+                        <h3 class="collection__thiennhien-header">Thiên nhiên</h3>
+                        <p class="collection__thiennhien-content">Nhỏ bé nhưng không giản đơn</p>
+                    </div>
+                </div>
+                <div class="col l-8 m-12 c-12">
+                    <div class="row">
+                        <div class="col l-3 m-4 c-6" *ngFor="let p of productsThiennhien">
+                            <div class=" collection__thiennhien-box ">
+                                <div class="collection__thiennhien-img ">
+                                    <img src="/assets/IMAGE/{{p.hinh}}" alt=" " class="collection__thiennhien-img-link ">
+                                </div>
+                                <div class="collection__thiennhien-selection ">
+                                    <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="collection__thiennhien-selection-link "><i class="collection__thiennhien-selection-icon fas fa-search "></i></a>
+                                    <a (click)="AddProduct(p.masp)" class="collection__thiennhien-selection-link "><i class="collection__thiennhien-selection-icon fas fa-cart-arrow-down "></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="colections__galaxy">
+            <div class="row">
+                <div class="col l-4 m-12 c-12">
+                    <div class="collection__galaxy-info">
+                        <h3 class="collection__galaxy-header">Vũ trụ</h3>
+                        <p class="collection__galaxy-content">Rộng lớn và đầy thú vị</p>
+                    </div>
+                </div>
+                <div class="col l-8 m-12 c-12">
+                    <div class="row">
+                        <div class="col l-3 m-4 c-6" *ngFor="let p of productsVutru">
+                            <div class="collection__galaxy-box">
+                                <div class="collection__galaxy-img">
+                                    <img src="/assets/IMAGE/{{p.hinh}}" alt=" " class="collection__galaxy-img-link">
+                                </div>
+                                <div class="collection__galaxy-selection">
+                                    <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="collection__galaxy-selection-link"><i class="collection__galaxy-selection-icon fas fa-search"></i></a>
+                                    <a href="" class="collection__galaxy-selection-link"><i class="collection__galaxy-selection-icon fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="colections__thanhlich">
+            <div class="row">
+                <div class="col l-4 m-12 c-12">
+                    <div class="collection__thanhlich-info">
+                        <h3 class="collection__thanhlich-header">Thanh lịch</h3>
+                        <p class="collection__thanhlich-content">Đơn giản trong sự sang trọng</p>
+                    </div>
+                </div>
+                <div class="col l-8 m-12 c-12">
+                    <div class="row">
+                        <div class="col l-3 m-4 c-6" *ngFor="let p of productsThanhlich">
+                            <div class="collection__thanhlich-box">
+                                <div class="collection__thanhlich-img">
+                                    <img src="/assets/IMAGE/{{p.hinh}}" alt=" " class="collection__thanhlich-img-link">
+                                </div>
+                                <div class="collection__thanhlich-selection">
+                                    <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="collection__thanhlich-selection-link"><i class="collection__thanhlich-selection-icon fas fa-search"></i></a>
+                                    <a href="" class="collection__thanhlich-selection-link"><i class="collection__thanhlich-selection-icon fas fa-cart-arrow-down"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

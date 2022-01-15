@@ -1,0 +1,293 @@
+<div class="container__background">
+    <img src="./assets/img/NEN.png" alt="" class="container__background-img">
+</div>
+
+
+<div class="container">
+    <div class="grid wide">
+
+        <div class="container__open">
+            <div class="open__slogan">
+                <div class="slogan__icon-left"><i class="fab fa-pagelines"></i></div>
+                <div class="slogan__title">Vẻ đẹp của chính bạn</div>
+                <div class="slogan__icon-right"><i class="fab fa-pagelines "></i></div>
+            </div>
+            <div class="open__content ">
+                <div class="content__title ">CHÀO MỪNG BẠN ĐẾN VỚI ALICIA</div>
+                <p class="content__message ">Với chúng tôi, mỗi một con người hay một câu chuyện nhỏ cũng ẩn chứa những vẻ đẹp khác nhau, và chúng tôi ở đây để giúp bạn tìm thấy được vẻ đẹp đó thông qua những chi tiết nhỏ nhất</p>
+            </div>
+        </div>
+        <div class="container__sale ">
+            <div class="sale__header ">
+                <h3 class="sale__name ">Ưu đãi trong tháng <i class="sale__icon fab fa-pagelines"></i></h3>
+                <div class="sale__view">
+                    <button class="sale__view-btn">Xem ngay</button>
+                </div>
+
+
+            </div>
+            <div class="row ">
+                <div class="col l-3 m-6 c-6 " *ngFor="let p of products">
+                    <div class=" product__box ">
+                        <div class="product__item ">
+                            <img src="/assets/IMAGE/{{p.hinh}}" alt=" " class="product__item-img ">
+                        </div>
+                        <h4 class="product__item-name ">
+                            {{p.tensp}}
+                        </h4>
+                        <div class="product__item-price ">
+                            <span class="product__item-price-current ">{{p.dongia}}₫</span>
+                            <span class="product__item-price-old "> 200.000đ</span>
+                        </div>
+                        <div class="product__item-sale ">
+                            <span class="product__item-sale-content ">Sale</span>
+                        </div>
+                        <div class="product__item-option ">
+                            <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="product__item-option-link "><i class="product__item-option-icon fas fa-search "></i></a>
+                            <a (click)="AddProduct(p.masp)" style="cursor:pointer" class="product__item-option-link "><i class="product__item-option-icon fas fa-shopping-cart "></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container__theme ">
+
+            <div class="container__theme-header ">
+                Sản phẩm
+                <div class="container__theme-icon "><i class="fab fa-pagelines "></i></div>
+            </div>
+            <div class="row ">
+                <div class="col l-6 ">
+                    <div class="theme__img ">
+                        <a [routerLink]="['/product']" routerLinkActive="active" class=" "><img src="./assets/img/CHUDE.jpg " alt=" " class="theme__img-link "></a>
+                        <span class="span1 "></span>
+                        <span class="span2 "></span>
+                    </div>
+                    <div class="theme__name ">
+                        <a [routerLink]="['/product']" routerLinkActive="active" class="theme__name-title "> Chủ đề</a>
+                    </div>
+                </div>
+                <div class="col l-6 ">
+                    <div class="theme__img ">
+                        <a [routerLink]="['/bosuutap']" routerLinkActive="active" class=" "><img src="./assets/img/BOSUUTAP.jpg " alt=" " class="theme__img-link "></a>
+                        <span class="span1 "></span>
+                        <span class="span2 "></span>
+
+                    </div>
+                    <div class="theme__name ">
+                        <a [routerLink]="['/bosuutap']" routerLinkActive="active" class="theme__name-title "> Bộ sưu tập</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container__top ">
+            <div class="row ">
+                <div class="col l-4 m-6 c-12">
+                    <div class="product__new-header">Sản phẩm mới
+                        <div class="product__new-icon-sp"><i class="fab fa-pagelines "></i></div>
+                    </div>
+                    <div class="top_product-new">
+                        <div class="row">
+                            <div class="col l-12 m-12 c-12" *ngFor="let p of productsBongtai">
+                                <div class=" product__new-item ">
+                                    <div class="new__item ">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class=" "><img src="/assets/IMAGE/{{p.hinh}} " alt=" " class="new__item-img "></a>
+                                    </div>
+                                    <div class="new__info ">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="new__name ">
+                                            {{p.tensp}}
+                                                </a>
+                                        <p class="new__price ">
+                                            {{p.dongia}}
+                                        </p>
+                                        <div class="new__rating">
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="product__new-header">Bán chạy
+                        <div class="product__new-icon-bc"><i class="fab fa-pagelines "></i></div>
+                    </div>
+                    <div class="top_product-new">
+                        <div class="row">
+                            <div class="col l-12 m-12 c-12" *ngFor="let p of productsDaychuyen">
+                                <div class=" product__new-item ">
+                                    <div class="new__item ">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class=" "><img src="/assets/IMAGE/{{p.hinh}} " alt=" " class="new__item-img "></a>
+                                    </div>
+                                    <div class="new__info ">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="new__name ">
+                                            {{p.tensp}}
+                                                </a>
+                                        <p class="new__price ">
+                                            {{p.dongia}}
+                                        </p>
+                                        <div class="new__rating">
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="product__new-header">Đặc biệt
+                        <div class="product__new-icon-db"><i class="fab fa-pagelines "></i></div>
+                    </div>
+                    <div class="top_product-new">
+                        <div class="row">
+                            <div class="col l-12 m-12 c-12" *ngFor="let p of productsVongtay">
+                                <div class="product__new-item">
+                                    <div class="new__item">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class=""><img src="/assets/IMAGE/{{p.hinh}} " alt="" class="new__item-img"></a>
+                                    </div>
+                                    <div class="new__info">
+                                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="new__name">
+                                            {{p.tensp}}
+                                            </a>
+                                        <p class="new__price">
+                                            {{p.dongia}}
+                                        </p>
+                                        <div class="new__rating">
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                            <i class="new__rating-icon fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+
+        <div class="container__banner ">
+            <div class="row ">
+                <div class="col l-6 ">
+                    <a href=" " class=" "><img src="./assets/img/BANNER.jpg " alt=" " class="banner__img "></a>
+                </div>
+                <div class="col l-6 ">
+                    <div class="banner__info ">
+                        <div class="banner__info-name ">Giảm giá đặc biệt</div>
+                        <div class="banner__info-content ">Áp dụng đến ngày 20/10</div>
+                        <div class="banner__info-number ">Sale off 30%</div>
+                        <button class="banner__info-button ">Xem ngay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container_new">
+            <div class="grid wide">
+                <div class="container_new-header">
+                    <div class="container_new-header-name">Tin tức</div>
+                    <i class="container_new-header-icon fab fa-pagelines"></i>
+                </div>
+                <div class="row">
+                    <div class="col l-6 m-6 c-12">
+                        <div class="container_new-box">
+                            <div class="row">
+                                <div class="col l-4 m-12 c-12">
+                                    <div class="container_new-box-left">
+                                        <img src="./assets/img/NEW1.jpg" alt="" class="container_new-box-img">
+                                    </div>
+
+                                </div>
+                                <div class="col l-8 m-12 c-12">
+                                    <div class="container_new-box-right">
+                                        <div class="container_new-box-header">8 kiểu bông tai đẹp và tinh tế cho nàng</div>
+                                        <div class="container_new-box-content">Lựa chọn bông tai sao cho phù hợp cũng là chủ đề khiến các cô nàng đau đầu mỗi ngày, vậy nên....</div>
+                                        <a href="" class="container_new-box-link">Xem tiếp  ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col l-6 m-6 c-12">
+                        <div class="container_new-box">
+                            <div class="row">
+                                <div class="col l-4 m-12 c-12">
+                                    <div class="container_new-box-left">
+                                        <img src="./assets/img/NEW2.jpg" alt="" class="container_new-box-img">
+                                    </div>
+                                </div>
+                                <div class="col l-8 m-12 c-12">
+                                    <div class="container_new-box-right">
+                                        <div class="container_new-box-header">Mẹo chọn trang sức sang trọng</div>
+                                        <div class="container_new-box-content">Thông thường, đồ nữ trang nên có màu sắc cùng tông với trang phục. Tuy nhiên trong một số trường...</div>
+                                        <a href="" class="container_new-box-link">Xem tiếp  ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col l-6 m-6 c-12">
+                        <div class="container_new-box">
+                            <div class="row">
+                                <div class="col l-4 m-12 c-12">
+                                    <div class="container_new-box-left">
+                                        <img src="./assets/img/NEW3.jpg" alt="" class="container_new-box-img">
+                                    </div>
+                                </div>
+                                <div class="col l-8 m-12 c-12">
+                                    <div class="container_new-box-right">
+                                        <div class="container_new-box-header">Bí quyết kết hợp phụ kiện ngọc trai với trang phục công sở</div>
+                                        <div class="container_new-box-content">Khéo léo kết hợp cùng phụ kiện ngọc trai, trang phục công sở sẽ thêm phần sang trọng, thể hiện được ...</div>
+                                        <a href="" class="container_new-box-link">Xem tiếp  ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col l-6 m-6 c-12">
+                        <div class="container_new-box">
+                            <div class="row">
+                                <div class="col l-4 m-12 c-12">
+                                    <div class="container_new-box-left">
+                                        <img src="./assets/img/NEW4.jpg" alt="" class="container_new-box-img">
+                                    </div>
+                                </div>
+                                <div class="col l-8 m-12 c-12">
+                                    <div class="container_new-box-right">
+                                        <div class="container_new-box-header">Những món quà tuyệt vời cho những người thân yêu</div>
+                                        <div class="container_new-box-content">Cùng xem qua những món quà tinh tế nhất mà chúng ta có thể dành tặng cho những người thân yêu...</div>
+                                        <a href="" class="container_new-box-link">Xem tiếp  ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

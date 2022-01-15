@@ -1,0 +1,62 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Chi Tiết</div>
+    <div class="container__background1-content">Trang chủ >> Chi tiết</div>
+</div>
+
+<div class="detail">
+    <div class="grid">
+        <div class="detail__box">
+            <div class="row">
+                <div class="col l-5">
+                    <div class="detail__picture">
+                        <img src="/assets/IMAGE/{{product.hinh}}" alt="" class="detail__img">
+                    </div>
+                </div>
+                <div class="col l-7">
+                    <div class="detail__info">
+                        <div class="detail__info-name">{{product.tensp}}</div>
+                        <div class="detail__info-price">
+                            <p class="detail__info-price-name">Giá:</p>
+                            <div class="detail__info-price-number">{{product.dongia}}</div>
+                        </div>
+                        <div class="detail__info-describe">Mô tả:
+                            <div class="p" style="width:600px">{{product.mota}}</div>
+                        </div>
+                        <div class="detail__quantity">
+                            <p class="detail__quantity-name"> Số lượng:</p>
+                            <div class="detail__info-quantity">
+                                <button class="detail__info-button" (click)="Decrease()">-</button>
+                                <input type="text" value="{{product?.soluong >= 1 ? 1 : 0}}" maxlength=" 5 " [max]="product?.soluong >= 1 ? product?.soluong: 0" readonly #soluong class="quantity__number">
+                                <button class="detail__info-button" (click)="Increase()">+</button>
+                            </div>
+                        </div>
+
+                        <div class="detail__info-cart"></div>
+                        <button (click)="addToCart(product?.masp)" style="cursor:pointer" class="detail__info-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="maybe">
+    <div class="grid wide">
+        <div class="maybe__header">Có thể bạn quan tâm</div>
+        <div class="row">
+            <div class="col l-3 m-6 c-6" *ngFor="let p of productsCaitoc">
+                <div class="maybe__box">
+                    <a (click)="selectProduct(p.masp)" style="cursor:pointer" class=""> <img src="/assets/IMAGE/{{p.hinh}}" alt="" class="maybe__item-img"></a>
+
+                    <div class="maybe__item-info">
+                        <a (click)="selectProduct(p.masp)" style="cursor:pointer" class="maybe__item-name">
+                            {{p.tensp}}
+                        </a>
+                        <p class="maybe__item-price">{{p.dongia}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

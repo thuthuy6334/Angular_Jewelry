@@ -1,0 +1,154 @@
+<header class="header">
+    <div class="grid wide">
+        <div class="header__menu">
+            <div class="header__logo">
+                <img src="./assets/img/LOGO1.png" alt="" class="header__logo-img">
+            </div>
+            <div class="header__navbar-pc">
+                <ul class="header__navbar-list">
+                    <li class="header__navbar-item">
+                        <a [routerLink]="['/']" routerLinkActive="active" class="header__navbar-item-link">Trang chủ</a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <div class="header__product-content">
+                            <a [routerLink]="['product']" routerLinkActive="active" class="header__navbar-item-link">Sản phẩm</a>
+                            <ul class="header__product-list">
+                                <li class="header__product-item" *ngFor="let p of productsMenu">
+                                    <a href=" products/loaisp/{{p.tenlsp}} " class="header__product-link ">{{p.tenlsp}}</a>
+                                </li>
+                                <!-- <li class="header__product-item ">
+                                    <a href=" " class="header__product-link ">Dây chuyền</a>
+                                </li>
+                                <li class="header__product-item ">
+                                    <a href=" " class="header__product-link "> Vòng tay</a>
+                                </li>
+                                <li class="header__product-item ">
+                                    <a href=" " class="header__product-link "> Bông tai </a>
+                                </li>
+                                <li class="header__product-item ">
+                                    <a href=" " class="header__product-link "> Cài tóc</a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__navbar-item ">
+                        <a [routerLink]="['bosuutap']" routerLinkActive="active " class="header__navbar-item-link ">Bộ sưu tập</a>
+                    </li>
+                    <li class="header__navbar-item ">
+                        <a [routerLink]="['about']" routerLinkActive="active " class="header__navbar-item-link ">Giới thiệu</a>
+                    </li>
+                    <li class="header__navbar-item ">
+                        <a [routerLink]="['contact']" routerLinkActive="active " class="header__navbar-item-link ">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header__search ">
+                <input class="header__search-input " type="text " placeholder="Tìm kiếm ">
+            </div>
+            <div class="header__icon-pc ">
+                <a [routerLink]="[ '/signin'] " routerLinkActive="active " class="header__icon-pc-link "><i class="header__icon-sign far fa-user "></i></a>
+                <!-- <a [routerLink]="[ '/cart'] " routerLinkActive="active " class="header__icon-pc-link "><i class="header__icon-cart fas fa-cart-arrow-down "></i></a> -->
+                <div class="header__cart" *ngIf="cartData.data[0].numInCart !== 0;  else templateName">
+                    <div class="header__cart-wrap">
+                        <a [routerLink]="[ '/cart'] " routerLinkActive="active " class="header__icon-pc-link"><i class="header__icon-cart fas fa-cart-arrow-down "></i></a>
+                        <span class="header__cart-notice">{{cartData.data[0].numInCart !==0 ? cartData.data.length : 0}}</span>
+
+                        <!-- has card: header__cart-list--no-cart  -->
+                        <div class="header__cart-list">
+                            <div class="header__cart-heading">
+                                <h4 class="header__cart-heading-content">Sản phẩm đã thêm</h4>
+                            </div>
+                            <ul class="header__cart-list-item">
+                                <!-- cart list item -->
+                                <li class="header__cart-item" *ngFor="let c of cartData.data; let i=index">
+                                    <img src="/assets/IMAGE/{{c.product.hinh}}" alt="" class="header__cart-img">
+                                    <div class="header__cart-item-info">
+                                        <div class="header__cart-item-head">
+                                            <h5 class="header__cart-item-name">{{c.product.tensp}}</h5>
+                                            <div class="header__cart-item-price-wrap">
+                                                <span class="header__cart-item-price">{{c.product.dongia}}₫ x {{c.numInCart}}</span>
+                                                <!-- <span class="header__cart-item-multiply">x</span>
+                                                <span class="header__cart-item-qnt">{{c.numInCart}}</span> -->
+                                            </div>
+                                        </div>
+                                        <div class="header__cart-item-body">
+                                            <!-- <span class=" header__cart-item-description ">Phân loại: </span> -->
+                                            <span class="header__cart-item-remove " (click)="cartService.DeleteProductFromCart(i)">Xóa</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a [routerLink]="[ '/cart'] " routerLinkActive="active " class="header__cart-view-cart btn btn--primary ">Xem giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+                <ng-template #templateName>
+                    <div class="header__cart-empty">
+                        <div class="header__cart-wrap-empty">
+                            <a [routerLink]="[ '/cart'] " routerLinkActive="active " class="header__icon-pc-link"><i class="header__icon-cart fas fa-cart-arrow-down "></i></a>
+                            <span class="header__cart-notice">0</span>
+
+                            <div class="header__cart-list-empty">
+                                <img src="/assets/img/EMPTY.png" alt="" class="header__cart-empty-img">
+                                <div class="header__cart-empty-content"> Chưa có sản phẩm </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-template>
+            </div>
+            <label for="header-mobile-input " class="nav__bars-btn ">
+                <i class="header-mobile-input-icon fas fa-bars "></i>
+            </label>
+            <input type="checkbox " name=" " class="header__input " id="header-mobile-input ">
+
+            <label for="header-mobile-input " class="header__overlay "></label>
+
+            <div class="header__mobile ">
+                <label for="header-mobile-input " class="header__mobile-close ">
+                    <i class="header__mobile-close-icon fas fa-times "></i>
+                </label>
+                <ul class="header__mobile-list ">
+                    <li class="header__mobile-item ">
+                        <a href="# " class="header__mobile-item-link ">Trang chủ</a>
+                    </li>
+                    <li class="header__mobile-item ">
+                        <div class="product__mobile-content ">
+                            <a href="# " class="header__mobile-item-link ">Sản phẩm</a>
+                            <ul class="product__mobile-list ">
+                                <li class="product__mobile-item ">
+                                    <a href=" " class="product__mobile-item-link ">Nhẫn</a>
+                                </li>
+                                <li class="product__mobile-item ">
+                                    <a href=" " class="product__mobile-item-link ">Dây chuyền</a>
+                                </li>
+                                <li class="product__mobile-item ">
+                                    <a href=" " class="product__mobile-item-link ">Vòng tay</a>
+                                </li>
+                                <li class="product__mobile-item ">
+                                    <a href=" " class="product__mobile-item-link ">Bông tai</a>
+                                </li>
+                                <li class="product__mobile-item ">
+                                    <a href=" " class="product__mobile-item-link ">Cài tóc</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__mobile-item ">
+                        <a href="# " class="header__mobile-item-link ">Bộ sưu tập</a>
+                    </li>
+                    <li class="header__mobile-item ">
+                        <a href="# " class="header__mobile-item-link ">Tin tức</a>
+                    </li>
+                    <li class="header__mobile-item ">
+                        <a href="# " class="header__mobile-item-link ">Liên hệ</a>
+                    </li>
+                </ul>
+                <div class="header__icon-mobile ">
+                    <i class="header__icon-sign far fa-user "></i>
+                    <i class="header__icon-cart fas fa-cart-arrow-down "></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

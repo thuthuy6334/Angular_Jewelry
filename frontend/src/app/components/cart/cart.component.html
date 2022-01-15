@@ -1,0 +1,131 @@
+<div class="container__background1">
+    <!-- <img src="./assets/img/NENSANPHAM.jpg" alt="" class="container__background-img1"> -->
+    <div class="container__background1-header">Giỏ Hàng</div>
+    <div class="container__background1-content">Trang chủ >> Giỏ hàng</div>
+</div>
+<div class="cart" *ngIf="cartData.data[0].numInCart !== 0;  else templateName">
+    <div class="cart__header">
+        <div class="grid wide">
+            <div class="row">
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Hình ảnh</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Tên sản phẩm</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Đơn giá</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Số lượng</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Tổng tiền</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-0">
+                    <div class="cart__header-item">
+                        <p class="cart__header-item-name">Xóa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart__footer">
+        <div class="grid wide">
+            <div class="row" *ngFor="let c of cartData.data; let i=index">
+                <div class="col l-2 m-2 c-12 ">
+                    <div class="cart__footer-item ">
+                        <img src="/assets/IMAGE/{{c.product.hinh}}" alt=" " class="cart__footer-item-img ">
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-6 ">
+                    <div class="cart__footer-item ">
+                        <p class="cart__footer-item-name ">{{c.product.tensp}}</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-6 ">
+                    <div class="cart__footer-item ">
+                        <p class="cart__footer-item-price ">{{c.product.dongia}}₫</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-6 " style="display: flex; justify-content: center;height: 30px; align-items: center; margin-top:12px;">
+                    <button type=" button " id="decrease " (click)="ChangeQuantity(i, false) " style="background-color: white; border: none; cursor:pointer; color: var(--blue-color); "><i class="fas fa-minus "></i></button>
+                    <input type="number " id="number " style="width:50px; border:none; text-align:center; font-size:1.4rem; " [value]="c.numInCart " readonly [max]="c.product.soluong ">
+                    <button type="button " id="increase " (click)="ChangeQuantity(i, true) " style="background-color: white; border: none; cursor:pointer; color:var(--blue-color);"><i class="fas fa-plus "></i></button>
+                </div>
+                <div class="col l-2 m-2 c-6 ">
+                    <div class="cart__footer-item ">
+                        <p class="cart__footer-item-total ">{{cartService.CalculateSubTotal(i)}}₫</p>
+                    </div>
+                </div>
+                <div class="col l-2 m-2 c-12 ">
+                    <div class="cart__footer-item ">
+                        <span><i class="fas fa-trash-alt " style="cursor:pointer; font-size:1.4rem; margin-top: 20px; color: var(--blue-color);" (click)="cartService.DeleteProductFromCart(i)"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart__totals-item ">
+        <div class="grid wide ">
+            <div class="row cart__totals--flex-end ">
+                <div class="col l-4 ">
+                    <div class="cart__totals-box ">
+                        <div class="cart__totals-name ">
+                            <span>Tổng tiền</span>
+                        </div>
+                        <div class="cart__border ">
+                            <div class="cart__border-content ">
+                                <span class="cart__content-name ">Tạm tính:</span>
+                                <span class="cart__content-price ">{{cartTotal}}₫</span>
+                            </div>
+                            <div class="cart__border-content ">
+                                <span class="cart__content-name ">Tổng:</span>
+                                <span class="cart__content-price ">{{cartTotal}}₫</span>
+                            </div>
+                        </div>
+                        <div class="cart__totals-button ">
+                            <a [routerLink]="['/checkout']" routerLinkActive="active" class="">
+                                <button class="cart__button-check">Tiến hành thanh toán</button>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #templateName>
+    <div class="cart__noproduct">
+        <div class="grid wide">
+            <div class="cart__noproduct-box">
+                <div class="cart__noproduct-header">
+                    Giỏ hàng của bạn
+                </div>
+                <div class="cart__noproduct-content">
+                    Không có sản phẩm nào trong giỏ hàng, quay lại cửa hàng để mua sắm.
+                </div>
+                <div class="cart__noproduct-selection">
+                    <a href="/" class="">
+                        <button class="cart__noproduct-button">Về trang chủ</button>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
