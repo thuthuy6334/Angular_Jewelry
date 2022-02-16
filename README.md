@@ -1,5 +1,6 @@
 # Angular_Jewelry
-![image](https://user-images.githubusercontent.com/96416137/154240636-ef2eb0b8-ed36-42ad-9c92-136603e5a765.png)
+![image](https://user-images.githubusercontent.com/96416137/154242328-09fdcbe6-518b-45a8-920b-ffb36cc515f9.png)
+
 # Angular and Node Ecommerce Website
 - Build an e-commerce website using MEAN stack (MySQLi, ExpressJS, Angular and Node.JS)
 # Technology Applied 
