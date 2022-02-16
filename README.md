@@ -10,3 +10,9 @@
 - Development: TSLint, Git, Github.
 # Run Locally
 1. Run Backend
+$ cd backend
+$ npm start
+2. Run frontend
+$ cd frontend
+$ npm start
+
